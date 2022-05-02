@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  margin-top: clamp(2em, 3vw, 3em);
+
+  td,
+  th {
+    border: 2px solid $color-primary;
+    font-size: clamp(12px, 3vw, 14px);
+    padding: .7em .5em;
+  }
+
+  th {
+    font-family: $font-secondary;
+  }
+
+  td {
+    color: $color-secondary;
+  }
+}

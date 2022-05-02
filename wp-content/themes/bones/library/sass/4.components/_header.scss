@@ -1,0 +1,41 @@
+.c-header {
+  background-color: $black;
+  position: sticky;
+  top: 0;
+  transition: $transition-default;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    margin: .75em 0;
+    
+    a {
+      display: inline-block;
+    }
+    
+    svg {
+      transition: $transition-default;
+    }
+  }
+
+  &.is-active {
+    .c-header__logo {
+      svg {
+        width: 140px;
+        height: 48px;
+      }
+    }
+
+    .c-menu__main {
+      & > .c-menu__item {
+        & > a {
+          padding: 20px 0;
+        }
+      }
+    }
+  }
+}

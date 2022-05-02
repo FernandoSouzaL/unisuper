@@ -1,0 +1,36 @@
+.acceptance {
+  .wpcf7-list-item {
+      margin: 0;
+  }
+
+  label a {
+      color: $color-primary;
+      text-decoration: underline;
+
+      &:hover {
+          color: $link-hover-color;
+      }
+  }
+}
+
+.wpcf7-spinner {
+  background-color: $white !important;
+  margin: 1em auto;
+  display: flex;
+
+  &::before {
+    content: '';
+    background-color: transparent !important;
+    top: unset !important;
+    position: relative !important;
+    left: unset !important;
+    width: 16px !important;
+    height: 16px !important;
+    border: 4px solid $color-secondary !important;
+    border-color: $color-secondary $color-secondary transparent transparent !important;
+    animation: spin 1.2s linear infinite !important;
+    transform-origin: unset !important;
+  }
+}
+  
+

@@ -1,0 +1,15 @@
+.c-footer {
+  background: $black;
+  display: inline-block;
+  width: 100%;
+
+  &__copyright {
+    margin: 2em 0;
+
+    img {
+      top: 0;
+      width: 20px;
+      height: 30px;
+    }
+  }
+}

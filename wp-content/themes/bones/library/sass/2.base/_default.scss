@@ -1,0 +1,33 @@
+@viewport {
+  width: device-width;
+  zoom: 1.0;
+}
+
+html,
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: $font-primary;
+  color: $text-color;
+  outline-color: $color-primary;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  word-wrap: normal!important;
+  -webkit-hyphens: none!important;
+  -ms-hyphens: none!important;
+  hyphens: none!important;
+  margin: 0 !important;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}

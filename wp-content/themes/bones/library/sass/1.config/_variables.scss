@@ -1,0 +1,37 @@
+// Colors
+$color-primary:     #000000;
+$color-secondary:   #FFFFFF;
+
+$gray:              #f4f4f4;
+$white:             #FFFFFF;
+$black:             #000000;
+
+
+
+// Objects
+$text-color:          $color-primary;
+$link-color:          $color-primary;
+$link-hover-color:    darken($color-primary, 10%);
+
+$btn-color-primary:   $color-secondary;
+
+
+
+// Typography
+$font-primary:        '', sans-serif;
+$font-secondary:      '', sans-serif;
+
+
+
+// Behaviour
+$transition-default:  all .2s ease-out;
+
+
+
+// Breakpoints
+$xs-max:  767px;
+$sm:      768px;
+$sm-max:  1023px;
+$md:      1024px;
+$md-max:  1199px;
+$lg:      1366px;
