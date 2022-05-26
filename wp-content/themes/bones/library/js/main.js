@@ -24,95 +24,89 @@ function loadGravatars() {
 /* Ondaweb regular jQuery */
 jQuery(document).ready(function ($) {
 
-  /*  ANIMAÇÕES*/
+  // Animated
 
-  function init() {
-    // start up after 2sec no matter what
-    window.setTimeout(function () {
+  function animatedOnScroll() {
+    $(window).on('scroll', function() {
+      const winHeight = $(this).innerHeight();
+      const winScroll = $(this).scrollTop() + winHeight;
+
+      $('.js-animated').each(function() {
+        const $this = $(this);
+        const elTop = $this.offset().top;
+
+        if(winScroll >= elTop + winHeight / 3) {
+          $this.addClass('is-visible');
+        } else {
+          $this.removeClass('is-visible');
+        }
+      });
+    });
+  }
+
+  animatedOnScroll();
+
+  function start() {
+    $('.js-animated-start').addClass('is-visible');
+  }
+
+  $(window).on('load', function() {
+    window.setTimeout(function() {
       start();
     }, 1000);
-  }
-  // fade in experience
-  function start() {
-
-    $('.animate.start').find('.fadeInUp').css({ bottom: 0, opacity: 1 });
-    $('.animate.start').find('.fadeInRight').css({ right: 0, opacity: 1 });
-    $('.animate.start').find('.fadeInLeft').css({ left: 0, opacity: 1 });
-    $('.animate.start').find('h2.page-title').css({ bottom: 0, opacity: 1 });
-    $('.animate.start').find('h1.page-title').css({ bottom: 0, opacity: 1 });
-    $('.animate.start').find('.desc-title').css({ bottom: 0, opacity: 1 });
-    $('.animate.start').find('h3').css({ bottom: 0, opacity: 1 });
-    $('.animate.start').find('h1').css({ bottom: 0, opacity: 1 });
-    $('.animate.start').find('h2').css({ bottom: 0, opacity: 1 });
-    $('.animate.start').find('p').css({ bottom: 0, opacity: 1 });
-    $('.animate.start').find('img').css({ bottom: 0, opacity: 1 });
-    $('.animate.start').find('a').css({ bottom: 0, opacity: 1 });
-
-  }
-
-  $(window).load(function () {
-    // fade in page
-    init();
   });
 
-  $(window).scroll(function () {
-    var scrollCenter = $(window).height() / 2;
-    $(".animate").each(function () {
-      var workOffsetTop = $(this).offset().top - $(document).scrollTop();
-      var workOffsetBot = workOffsetTop + $(this).height();
-      if (workOffsetTop > scrollCenter) {
+  // Sliders
 
-      } else if (workOffsetBot < scrollCenter) {
-
-      } else {
-
-        $(this).find('h2').css({ bottom: 0, opacity: 1 });
-        $(this).find('.fadeInUp').css({ bottom: 0, opacity: 1 });
-        $(this).find('.fadeInRight').css({ right: 0, opacity: 1 });
-        $(this).find('.fadeInLeft').css({ left: 0, opacity: 1 });
-        $(this).find('h1.page-title').css({ bottom: 0, opacity: 1 });
-        $(this).find('.desc-title').css({ bottom: 0, opacity: 1 });
-        $(this).find('h3').css({ bottom: 0, opacity: 1 });
-        $(this).find('h1').css({ bottom: 0, opacity: 1 });
-        $(this).find('h2').css({ bottom: 0, opacity: 1 });
-        $(this).find('p').css({ bottom: 0, opacity: 1 });
-        $(this).find('img').css({ bottom: 0, opacity: 1 });
-        $(this).find('a').css({ bottom: 0, opacity: 1 });
-
-      };
-    });
-  });
-
-  var swiper = new Swiper('.swiper-container', {
+  var swiper = new Swiper('.js-home-slider', {
     slidesPerView: 'auto',
-    centeredSlides: true,
-    paginationClickable: true,
-    //spaceBetween: 5000,
     autoplay: {
       delay: 8000,
     },
     pagination: {
-      el: '.swiper-pagination',
+      el: '.js-home-slider .swiper-pagination',
       type: 'bullets',
       clickable: true,
     },
-    //loop: true,
-    // breakpoints: {
-    //     // when window width is <= 320px
-    //     1024: {
-    //       slidesPerView: 2,
-    //     },
-    //     // when window width is <= 480px
-    //     768: {
-    //       slidesPerView: 1,
-    //       spaceBetween: 20
-    //     }
-    //   }
+    navigation: {
+      nextEl: ".js-home-slider .button-next",
+      prevEl: ".js-home-slider .button-prev",
+    },
+  });
+
+  var swiper = new Swiper('.js-slider-layout', {
+    slidesPerView: 2,
+    spaceBetween: 60,
+    watchOverflow: true,
+    pagination: {
+      el: '.js-slider-layout .swiper-pagination',
+      type: 'bullets',
+      clickable: true,
+    },
+    breakpoints: {
+      768: {
+        spaceBetween: 10
+      },
+      767: {
+        slidesPerView: 1
+      },
+    }
+  });
+
+  var swiper = new Swiper('.js-slider-view-more', {
+    slidesPerView: 1,
+    watchOverflow: true,
+    pagination: {
+      el: '.js-slider-view-more .swiper-pagination',
+      type: 'bullets',
+      clickable: true,
+    },
   });
 
   // Menu mobile
   $('.js-active-menu').on('click', function() {
     $('.c-menu').toggleClass('is-active');
+    $('html').toggleClass('is-active-menu');
   });
 
   // Anima header
@@ -139,7 +133,131 @@ jQuery(document).ready(function ($) {
   $('.js-lang').on('click', function() {
     $('.c-menu__lang-container').toggleClass('is-active');
     $(this).toggleClass('is-active');
-  })
+  });
+
+  //Ajax vagas
+  function searchVacancies() {
+    var optionValue = $('select').find('option:selected');
+    var valueId = optionValue.val();
+    
+    $.ajax({
+      type: 'POST',
+      url: '../wp-content/themes/bones/library/php/busca-vagas.php?acao=busca_vagas',
+      data: {
+      valueId: valueId
+      },
+      beforeSend: function() {
+        $('#response').css('display', 'flex');
+      },
+    }).done(function(e){
+
+      $('.js-container-ajax').html(''); // limpa div
+      $('.js-container-ajax').append(e); // carrega o conteúdo
+    });
+  }
+
+  $('.js-search-vacancies').on('change', function() {
+    searchVacancies();
+  });
+
+  //Ajax lojas
+  function searchShops() {
+    var optionValue = $('select').find('option:selected');
+    var valueId = optionValue.val();
+    
+    $.ajax({
+      type: 'POST',
+      url: '../wp-content/themes/bones/library/php/busca-lojas.php?acao=busca_lojas',
+      data: {
+      valueId: valueId
+      },
+      beforeSend: function() {
+        $('#response').css('display', 'flex');
+      },
+    }).done(function(e){
+
+      $('.js-container-ajax').html(''); // limpa div
+      $('.js-container-ajax').append(e); // carrega o conteúdo
+    });
+  }
+
+  $('.js-search-shops').on('change', function() {
+    searchShops();
+  });
+
+  //Ajax ofertas
+  $('.c-offers__item:first a').addClass('current-active');
+
+  $('.js-search-offers').on('click', function(i) {
+    i.preventDefault();
+
+    $('.current-active').removeClass('current-active');
+    $(this).addClass('current-active');
+    
+    var $optionValue = $(this);
+    var valueId = $optionValue.attr('href');
+
+    console.log(valueId)
+    
+    $.ajax({
+      type: 'POST',
+      url: '../wp-content/themes/bones/library/php/busca-ofertas.php?acao=busca_ofertas',
+      data: {
+      valueId: valueId
+      },
+      beforeSend: function() {
+        $('#response').css('display', 'flex');
+      },
+    }).done(function(e){
+
+      $('.js-container-ajax').html(''); // limpa div
+      $('.js-container-ajax').append(e); // carrega o conteúdo
+    });
+  });
+
+  $(function() {
+  
+    // Privacy Cookie Alert
+    var gdprcookie = getCookie('gdprcookie');
+  
+    if (gdprcookie != 'yes') {
+      $('.c-privacy-alert').removeClass('is-hidden');
+    }
+  
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+  
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      var expires = "expires="+d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+  
+    function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+  
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+  
+  
+    // Close cookie alert
+    $('.js-close-alert').on('click', function(e) {
+      e.preventDefault();
+  
+      setCookie("gdprcookie", 'yes', 30);
+      $(this).parents('.c-privacy-alert').addClass('is-hidden');
+    });
+  
+  });
 
   // ANIMA MENU
   /* $('#menu-principal a').click(function(e){
@@ -266,14 +384,14 @@ jQuery(document).ready(function ($) {
   // end.
 
   // MASKED INPUT
-  /*$(function($){
+  $(function($){
       $(".data").mask("99/99/9999");
-      $(".cpf").mask("999.999.999-99");
-      $(".cep").mask("99999-999");
+      $(".js-cpf").mask("999.999.999-99");
+      $(".js-cep").mask("99999-999");
       $(".cnpj").mask("99.999.999/9999-99")
   });
   $(function($){
-    $('.telefone').focusout(function(){
+    $('.js-telphone').focusout(function(){
       var phone, element;
       element = $(this);
       element.unmask();
@@ -284,7 +402,7 @@ jQuery(document).ready(function ($) {
         element.mask("(99) 9999-9999?9");
       }
     }).trigger('focusout');
-  });*/
+  });
   // end.
 
   loadGravatars();

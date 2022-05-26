@@ -1,0 +1,43 @@
+.c-app {
+  .c-banner--app {
+    margin-bottom: 0;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    margin-left: clamp(2em, 5vw, 4em);
+
+    h2 {
+      margin: .3em 0 !important;
+    }
+  }
+
+  &__block {
+    &:nth-child(odd) {
+      margin-bottom: clamp(2em, 5vw, 4em);
+    }
+  }
+
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: clamp(2em, 5vw, 4em);
+
+    a {
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

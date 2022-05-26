@@ -1,0 +1,87 @@
+.o-grid {
+  display: grid;
+
+  &__col {
+    &-2 {
+      grid-template-columns: repeat(2, 1fr);
+
+      @include below($sm) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    &-3 {
+      grid-template-columns: repeat(3, 1fr);
+
+      @include below($sm-max) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include below($xs-max) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    &-6 {
+      grid-template-columns: repeat(6, 1fr);
+
+      @include below($md-max) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @include below($sm-max) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @include below($xs-max) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  &__gap {
+    &-20 {
+      grid-gap: 20px;
+    }
+
+    &-30 {
+      grid-gap: 30px;
+    }
+
+    &-60 {
+      grid-gap: 60px;
+
+      @include below($sm) {
+        grid-gap: 0;
+      }
+    }
+
+    &-70 {
+      grid-gap: 70px;
+
+      @include below($xs-max) {
+        grid-gap: 10px
+      }
+    }
+
+    &-90 {
+      grid-gap: 90px;
+    }
+
+    &-100 {
+      grid-gap: 100px;
+    }
+
+    &-130 {
+      grid-gap: 130px;
+
+      @include below($sm-max) {
+        grid-gap: 65px;
+      }
+
+      @include below($sm) {
+        grid-gap: 20px;
+      }
+    }
+  }
+}

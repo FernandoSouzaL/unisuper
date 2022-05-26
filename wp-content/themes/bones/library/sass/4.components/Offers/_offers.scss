@@ -1,0 +1,45 @@
+.c-offers {
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: clamp(2em, 5vw, 4em);
+
+    @include below($sm) {
+      flex-direction: column;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding-right: 20px;
+
+    @include below($xs-max) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item {
+    padding: 0 20px;
+    margin: 10px 0;
+    border-right: 2px solid $gray;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    a {
+      color: $gray;
+
+      &.current-active {
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__content {
+    margin-top: 3em;
+  }
+}

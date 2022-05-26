@@ -79,8 +79,8 @@ $menus[] = $myMenu;
         ?>
 
     <li class="c-menu__item">
-        <a href="<?= $menu->url; ?>" class="o-ttl o-ttl--primary o-ttl--15 o-ttl--upper o-ttl--white <?= $current; ?> <?= $classNv1; ?>">
-            <?= $menu->titulo; ?> 
+        <a href="<?= $menu->url; ?>" class="o-ttl--13 o-ttl--bold <?= $current; ?> <?= $classNv1; ?>">
+            <span><?= $menu->titulo; ?></span> 
         </a>
             
         <?php if ($menu->submenu): ?>
@@ -97,7 +97,7 @@ $menus[] = $myMenu;
                     ?>
     
                     <li class="c-menu__item">
-                        <a href="<?= $submenu->url; ?>" class="o-ttl o-ttl--primary o-ttl--15 o-ttl--upper o-ttl--white o-ttl--center <?= $currentNv2; ?> <?= $classNv2; ?>">
+                        <a href="<?= $submenu->url; ?>" class="o-ttl--13 o-ttl--center <?= $currentNv2; ?> <?= $classNv2; ?>">
                             <?= $submenu->titulo; ?> 
                         </a> 
                     </li>

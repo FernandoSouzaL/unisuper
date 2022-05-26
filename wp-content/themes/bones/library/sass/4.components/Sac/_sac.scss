@@ -1,0 +1,58 @@
+.c-sac {
+  &__block {
+    padding: clamp(1em, 5vw, 3em);
+    background-color: $light-gray;
+    margin-top: clamp(2em, 5vw, 4em);
+    margin-bottom: clamp(2em, 5vw, 4em);
+    position: relative;
+  }
+
+  &__txt {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    
+    h3 {
+      font-size: clamp(16px, 5vw, 20px);
+    }
+  }
+
+  &__contact {
+    margin-top: 1.5em;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      .c-sac__svg {
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__svg {
+    margin-right: 15px;
+    color: $green;
+    transition: $transition-default;
+  }
+
+  &__content-form {
+    position: relative;
+    z-index: 2;
+    width: 51.57894736842105%;
+    
+    @include below($sm-max) {
+      width: 100%;    
+      margin-top: 1.5em;
+    }
+  }
+
+  &__form {
+    padding: 3em;
+    background-image: linear-gradient(to bottom, #D4D4D4, #8C8C8C);
+    border-radius: 10px;
+
+    @include below($xs-max) {
+      padding: 3em 1em;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <g id="Grupo_2050" data-name="Grupo 2050" transform="translate(-390 -1001)">
+    <g id="Retângulo_540" data-name="Retângulo 540" transform="translate(390 1001)" fill="#f8f8f8" stroke="#009a4d" stroke-width="1">
+      <rect width="26" height="26" rx="13" stroke="none"/>
+      <rect x="0.5" y="0.5" width="25" height="25" rx="12.5" fill="none"/>
+    </g>
+    <text id="i" transform="translate(403 1020)" fill="#009a4d" font-size="16" font-family="Poppins-SemiBold, Poppins" font-weight="600"><tspan x="-2.224" y="0">i</tspan></text>
+  </g>
+</svg>

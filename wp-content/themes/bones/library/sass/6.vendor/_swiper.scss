@@ -32,26 +32,96 @@
   margin-top: 1em;
 }
 
-.swiper-button {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  margin: 0 5px;
-  cursor: pointer;
+.button-next,
+.button-prev {
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: #EEE;
-  color: $color-secondary;
+  align-items: center;
+  color: $white;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 9;
+  cursor: pointer;
   transition: $transition-default;
 
-  &:hover {
-    background: $link-hover-color;
-    color: $white;
+  @media (max-width: $xs-max) {
+    display: none;
   }
 
-  &-disabled {
-    opacity: .35;
-    pointer-events: none;
+  &:hover {
+    color: $color-primary;
   }
 }
+
+.button-next {
+  right: 2%;
+
+  svg {
+    transform: rotate(180deg);
+  }
+}
+
+.button-prev {
+  left: 2%;
+}
+
+.swiper-button {
+  &-disabled {
+    pointer-events: none;
+    opacity: .3;
+  }
+
+  &-lock {
+    display: none;
+  }
+}
+
+.swiper-pagination {
+  position: absolute;
+  text-align: center;
+  transition: $transition-default;
+  z-index: 10;
+  bottom: 3%;
+  left: 0;
+  width: 100%;
+
+  &--secondary {
+    position: relative;
+    bottom: 0;
+    margin-top: 2em;
+  }
+
+  &--gray {
+    .swiper-pagination-bullet {
+      background: $gray;
+
+      &-active {
+        background: $color-primary;
+      }
+    }
+  }
+
+  &-lock {
+    display: none;
+  }
+ 
+  &-bullet {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 50%;
+    background: $white;
+    margin: 0 4px;
+
+    @include below($sm) {
+      width: 10px;
+      height: 10px;
+    }
+    
+    &-active {
+      background: $color-primary;
+    }
+  }
+}
+

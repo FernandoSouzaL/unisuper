@@ -1,0 +1,282 @@
+.c-banner {
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+
+  &--slider {
+    margin-bottom: clamp(2em, 5vw, 4em);
+  }
+
+  &--615 {
+    height: 615px;
+    margin-bottom: clamp(2em, 5vw, 4em);
+
+    @include below($md-max) {
+      height: 515px;
+    }
+
+    @include below($sm) {
+      height: 415px; 
+      overflow: hidden;
+    }
+  }
+
+  &--460 {
+    height: 460px;
+    margin-bottom: clamp(2em, 5vw, 4em);
+  }
+
+  &--app {
+    background-color: #E7E7E7;
+    background-position: right !important;
+    background-repeat: no-repeat !important;
+    position: relative;
+
+    @include below($sm-max) {
+      background-size: cover !important;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+
+      @include below($sm-max) {
+        display: none;
+      }
+    }
+    
+    &::before {
+      top: 0;
+      background-image: url('../../library/images/green-app.svg');
+      left: 0;
+      width: 361px;
+      height: 334px;
+    }
+
+    &::after {
+      bottom: 0;
+      right: 0;
+      background-image: url('../../library/images/red-app.svg');
+      width: 480px;
+      height: 460px;
+    }
+  }
+
+  &--card {
+    background-color: #E7E7E7;
+    position: relative;
+
+    @include below($sm) {
+      height: auto !important; 
+      padding: 2em 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-image: url('../../library/images/u-green.svg');
+      z-index: 1;
+      width: 554px;
+      height: 460px;
+
+      @include below($sm-max) {
+        display: none;
+      }
+    }
+  }
+
+  &--page {
+    height: 540px;
+    position: relative;
+
+    @include below($md) {
+      height: 440px;
+    }
+
+    @include below($sm) {
+      height: 340px;
+    }
+
+    @include below($xs-max) {
+      height: 300px;
+    }
+
+    &::before {
+      content: '';
+      width: 468px;
+      height: 456px;
+      background-image: url('../../library/images/u-banner.svg');
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+
+      @include below($xs-max) {
+        display: none;
+      }
+    }
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.4);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 2;
+    }
+  }
+
+  &--400 {
+    height: 400px;
+    position: relative;
+
+    @include below($sm-max) {
+      height: 300px;         
+    }
+
+    &::before {
+      content: '';
+      width: 468px;
+      height: 316px;
+      background-image: url('../../library/images/u-banner.svg');
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+
+      @include below($xs-max) {
+        display: none;
+      }
+    }
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.4);
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 2;
+    }
+  }
+
+  &__content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+  }
+
+  &--430 {
+    height: 302px;
+    background-image: url('../../library/images/banner-layout-lojas.jpg');
+    padding-top: clamp(2em, 5vw, 4em);
+    padding-bottom: clamp(2em, 5vw, 4em);
+  }
+
+  &--whats {
+    margin-bottom: clamp(2em, 5vw, 4em);
+    position: relative;
+    background-image: linear-gradient(to right, #E7E7E7, #8C8C8C);
+
+    @include below($lg) {
+      padding-top: 2em;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      
+      @include below($md-max) {
+        display: none;
+      }
+    }
+    
+    &::before {
+      top: 0;
+      left: 0;
+      background-image: url('../../library/images/green-left.svg');
+      width: 235px;
+      height: 218px;
+    }
+
+    &::after {
+      bottom: 0;
+      right: 0;
+      background-image: url('../../library/images/green-right.svg');
+      width: 335px;
+      height: 321px;
+    }
+  }
+
+  &__whats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include below($md) {
+      flex-direction: column;
+    }
+
+    &-title {
+      width: 417px;
+      max-width: 100%;
+      margin-right: 2%;
+      margin-left: 10%;
+
+      @include below($md-max) {
+        margin-left: 2%;   
+        margin-bottom: 1em;
+      }
+
+      @include below($xs-max) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;              
+      }
+
+      h2 {
+        font-size: clamp(25px, 5vw, 45px);
+        margin-top: 0;
+
+        @include below($md-max) {
+         margin-bottom: 15px; 
+        }
+      }
+
+      p {
+        display: flex;
+        align-items: center;
+
+        @include below($md-max) {
+          margin: .5em 0; 
+        }
+
+        svg {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    &-img {
+      width: 62.08333333333333%;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+
+      @include below($md) {
+       width: 100%; 
+      }
+    }
+  }
+}

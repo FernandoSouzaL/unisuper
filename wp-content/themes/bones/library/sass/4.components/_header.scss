@@ -1,8 +1,9 @@
 .c-header {
-  background-color: $black;
+  background-color: $white;
   position: sticky;
   top: 0;
   transition: $transition-default;
+  z-index: 9999;
 
   &__container {
     display: flex;
@@ -23,6 +24,8 @@
   }
 
   &.is-active {
+    box-shadow: 0 0 10px -2px rgba(0,0,0,.3);
+
     .c-header__logo {
       svg {
         width: 140px;
@@ -33,8 +36,68 @@
     .c-menu__main {
       & > .c-menu__item {
         & > a {
-          padding: 20px 0;
+          &::after {
+            transform: translateY(26px);
+
+            @include below($md-max) {
+              transform: translateX(-10px);
+            }
+          }
         }
+      }
+    }
+  }
+
+  &__whats {
+    position: fixed;
+    right: 5%;
+    top: 50%;
+    z-index: 9;
+
+    img {
+      @include below($xs-max) {
+        width: 44px;
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      &:hover {
+        p {
+          opacity: 1;
+          padding: 15px 15px;
+          height: auto;
+          overflow: visible;
+        }
+      }
+    }
+    
+    p {
+      margin: 0;
+      background: $white;
+      border-radius: 10px;
+      position: relative;
+      height: 0;
+      transition: $transition-default;
+      opacity: 0;
+      position: absolute;
+      overflow: hidden;
+      left: -170px;
+      top: 50%;
+      transform: translateY(-50%);
+
+      &::after {
+        content: '';
+        width: 15px;
+        height: 15px;
+        background: $white;
+        position: absolute;
+        right: -11.5px;
+        top: 50%;
+        transform: rotate(45deg) translate(-50%);
       }
     }
   }

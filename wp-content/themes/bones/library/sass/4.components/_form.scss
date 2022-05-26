@@ -1,0 +1,17 @@
+.c-form {
+  &__control {
+    width: 100%;
+    margin-bottom: 1em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-col {
+      @include above($md-max) {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

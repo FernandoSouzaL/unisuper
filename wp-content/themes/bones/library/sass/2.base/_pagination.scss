@@ -1,0 +1,80 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+
+  ul {
+    display: flex;
+    list-style: none;
+  }
+
+  li {
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+    margin: 0 .5em;
+    font-size: 20px;
+    font-weight: bold;
+    color: $color-secondary;
+    overflow: hidden;
+    border-radius: 50%;
+
+    .current {
+      color: $white;
+      background-color: $color-primary;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    a {
+      color: $color-secondary;
+      background-color: $light-gray;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      &:hover {
+        color: $white;
+        background-color: $color-primary;
+      }
+
+      &.next {
+        
+        &::before {
+          content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8.192" height="14.333" viewBox="0 0 8.192 14.333"><path id="Caminho_693" data-name="Caminho 693" d="M7.784,6.13,2.375.429a1.342,1.342,0,0,0-1.967,0,1.522,1.522,0,0,0,0,2.073L4.833,7.167.408,11.831a1.522,1.522,0,0,0,0,2.073,1.342,1.342,0,0,0,1.967,0L7.784,8.2A1.522,1.522,0,0,0,7.784,6.13Z" fill="%23009A4D"/></svg>');
+        }
+
+        &:hover {
+          &::before {
+            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8.192" height="14.333" viewBox="0 0 8.192 14.333"><path id="Caminho_693" data-name="Caminho 693" d="M7.784,6.13,2.375.429a1.342,1.342,0,0,0-1.967,0,1.522,1.522,0,0,0,0,2.073L4.833,7.167.408,11.831a1.522,1.522,0,0,0,0,2.073,1.342,1.342,0,0,0,1.967,0L7.784,8.2A1.522,1.522,0,0,0,7.784,6.13Z" fill="%23FFF"/></svg>');
+          }
+        }
+      }
+
+      &.prev {
+        
+        &::before {
+          content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8.192" height="14.333" viewBox="0 0 8.192 14.333">
+          <path id="Caminho_692" data-name="Caminho 692" d="M.408,6.13,5.817.429a1.342,1.342,0,0,1,1.967,0,1.522,1.522,0,0,1,0,2.073L3.358,7.167l4.426,4.664a1.522,1.522,0,0,1,0,2.073,1.342,1.342,0,0,1-1.967,0L.408,8.2A1.522,1.522,0,0,1,.408,6.13Z" fill="%23009a4d"/>
+        </svg>
+        ');
+        }
+
+        &:hover {
+          &::before {
+            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8.192" height="14.333" viewBox="0 0 8.192 14.333">
+            <path id="Caminho_692" data-name="Caminho 692" d="M.408,6.13,5.817.429a1.342,1.342,0,0,1,1.967,0,1.522,1.522,0,0,1,0,2.073L3.358,7.167l4.426,4.664a1.522,1.522,0,0,1,0,2.073,1.342,1.342,0,0,1-1.967,0L.408,8.2A1.522,1.522,0,0,1,.408,6.13Z" fill="%23FFF"/>
+          </svg>
+          ');
+          }
+        }
+      }
+    }
+  }
+}

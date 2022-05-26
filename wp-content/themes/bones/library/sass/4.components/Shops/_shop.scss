@@ -1,0 +1,52 @@
+.c-shop {
+  &__header {
+    margin-bottom: clamp(2em, 5vw, 4em);
+    display: flex;
+    justify-content: space-between;
+
+    @include below($xs-max) {
+      flex-direction: column;
+    }
+  }
+
+  &__select {
+    width: 360px;
+    max-width: 100%;
+  }
+
+  &__loadmore {
+    .alm-reveal {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+
+      @include below($sm-max) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include below($xs-max) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+
+  &__img {
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+  }
+
+  &__txt {
+    h3 {
+      margin: 1.5em 0;
+    }
+  }
+
+  &__icon {
+    margin: 1.5em 0;
+    display: flex;
+
+    svg {
+      margin-right: 15px;
+    }
+  }
+}

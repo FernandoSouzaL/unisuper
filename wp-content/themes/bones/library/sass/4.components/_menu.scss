@@ -12,7 +12,7 @@
       top: 0;
       right: -100%;
       z-index: 9999;
-      background: $black;
+      background: $light-gray;
       width: 320px;
       height: 100vh;
       box-sizing: border-box;
@@ -33,21 +33,19 @@
     }
 
     & > .c-menu__item {
-      margin: .5em 1.2em;
+      margin: .5em 1em;
       position: relative;
 
       @media (max-width: $md-max) {
         width: 100%;
-        margin: 0;
+        margin: 10px 0;
       }
 
       & > a {
-        padding: 30px 0;
         position: relative;
 
         @media (max-width: $md-max) {
           width: 100%;
-          padding: 10px 20px !important;
           display: inline-block;
           box-sizing: border-box;
           font-size: 18px;
@@ -56,20 +54,45 @@
         &::after {
           content: '';
           width: 0%;
-          height: 2px;
-          border-radius: 5px;
-          background: $white;
+          height: 6px;
+          border-radius: 3px 3px 0px 0px;
+          background: $color-primary;
           position: absolute;
           left: 0;
-          bottom: 25px;
+          bottom: 0;
           z-index: 1;
           opacity: 0;
           transition: $transition-default;
+          transform: translateY(40px);
 
           @media (max-width: $md-max) {
             bottom: 0;
             width: 2px;
             height: 0%;
+            transform: translateX(-10px);
+          }
+        }
+
+        &.c-menu__item-btn {
+          @include below($md-max) {
+            padding: 10px 20px !important;
+          }
+
+          &::after {
+            opacity: 0 !important;
+          }
+        }
+
+        &.c-menu__item-ico {
+          span {
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+
+            &::before {
+              content: url('../../library/images/ico-whats.svg');
+              margin-right: 10px;
+            }
           }
         }
 
@@ -177,6 +200,10 @@
         height: 100% !important;
       }
     }
+
+    &.c-menu__item-btn {
+      background: $color-primary;
+    }
   }
 
   &__redes {
@@ -184,12 +211,7 @@
     align-items: center;
     list-style: none;
     margin: 0;
-    margin-left: 1.5em;
-
-    @media (max-width: $md-max) {
-      margin-left: 0;
-      margin-top: 2em;
-    }
+    margin-top: 1em;
 
     .c-menu__icon {
       margin: 0 .3em;
@@ -204,9 +226,35 @@
       
       & > a {
         display: inline-block;
-        color: $white;
+        color: $text-color;
+
+        &:hover {
+          color: $color-primary;
+        }
       }
     }
+  }
+
+  &__footer {
+    list-style: none;
+    margin: 0;
+
+    li {
+      margin: .3em 0;
+    }
+
+    a {
+      font-size: 13px;
+      font-weight: 500;  
+    }
+
+    .current-menu-item {
+      > a {
+        color: $color-primary;
+        border-bottom: 1px solid $color-primary;
+      }
+    }
+
   }
 
   &__lang {
@@ -282,7 +330,7 @@
         height: 3px;
         border-radius: 5px;
         transition: $transition-default;
-        background: $white;
+        background: $text-color;
         position: absolute;
         left: 0;
         top: 0;
@@ -295,7 +343,7 @@
       width: 100%;
       height: 3px;
       border-radius: 5px;
-      background: $white;
+      background: $text-color;
       position: absolute;
       left: 0;
     }
@@ -334,7 +382,7 @@
       width: 100%;
       height: 3px;
       border-radius: 5px;
-      background: $white;
+      background: $text-color;
       position: absolute;
       left: 0;
     }

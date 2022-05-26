@@ -1,0 +1,7 @@
+.c-lgpd {
+  &__block {
+    &:nth-child(odd) {
+      margin-bottom: clamp(2em, 5vw, 4em);
+    }
+  }
+}

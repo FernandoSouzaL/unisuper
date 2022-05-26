@@ -1,0 +1,23 @@
+@mixin below($width) {
+  @media (max-width: $width) {
+    @content
+  }
+}
+
+@mixin above($width) {
+  @media (min-width: $width) {
+    @content
+  }
+}
+
+@mixin time($time, $total) {
+  $count: .1;
+
+  @for $i from 1 through $total {
+    $count: $count + $time;
+
+    &-#{$i} {
+      transition-delay: $count + s;
+    }
+  }
+}

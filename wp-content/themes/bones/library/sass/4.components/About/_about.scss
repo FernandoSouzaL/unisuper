@@ -1,0 +1,124 @@
+.c-about {
+  &__block {
+    padding: clamp(1em, 5vw, 3em);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $light-gray;
+    border-radius: 15px;
+    margin-bottom: clamp(2em, 5vw, 4em);
+    
+    @include below($sm) {
+      flex-direction: column-reverse;  
+    }
+
+    &:first-child {
+      margin-top: clamp(2em, 5vw, 4em);
+    }
+
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+
+      @include below($sm) {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
+  &__img {
+    width: 562px;
+    max-width: 43.984375%;
+    position: relative;
+    
+    @include below($sm) {
+      max-width: 100%;  
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      transform: translateY(-50%);
+
+      @include below($sm) {
+        position: relative;
+        transform: unset;
+        left: unset;
+      }
+    }
+  }
+
+  &__txt {
+    width: 36.640625%;
+
+    @include below($sm) {
+     width: 100%; 
+    }
+
+    h2 {
+      font-size: clamp(23px, 5vw, 38px);
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: .3em;
+    }
+  }
+
+  &__messege {
+    margin-top: clamp(2em, 5vw, 4em);
+    margin-bottom: clamp(2em, 5vw, 4em);
+  }
+
+  &__underline {
+    display: block;
+    width: 45px;
+    height: 6px;
+    border-radius: 5px;
+    background-color: $light-green;
+    margin-top: 1.5em;
+  }
+
+  &__container {
+    margin-top: 3em;
+  }
+
+  &__values {
+    transition: $transition-default;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &:hover {
+      .c-about__values-img {
+        background-color: transparent;
+
+        & svg path {
+          fill: $color-primary
+        }
+      }
+
+      h3 {
+        color: $color-primary;
+      }
+    }
+
+    &-img {
+      width: 135px;
+      height: 135px;
+      border: 3px solid $color-primary;
+      background-color: $color-primary;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5em;
+      transition: $transition-default;
+
+      & svg path {
+        transition: $transition-default;
+      }
+    }
+
+    h3 {
+      transition: $transition-default;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.c-work-us {
+  &__select {
+    width: 300px;
+    margin-top: 2em;
+  }
+
+  &__container {
+    margin-top: clamp(2em, 5vw, 4em);
+  }
+
+  &__item {
+    margin-bottom: 2em;
+  }
+}

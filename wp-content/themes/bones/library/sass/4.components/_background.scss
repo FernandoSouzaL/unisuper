@@ -1,0 +1,8 @@
+.c-bg {
+  padding-top: clamp(2em, 5vw, 4em);
+  padding-bottom: clamp(2em, 5vw, 4em);
+
+  &--gray {
+    background-color: $light-gray;
+  }
+}

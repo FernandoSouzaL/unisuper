@@ -74,9 +74,9 @@
 				<div class="o-wrapper o-wrapper--1280">
 					<div class="c-header__container">
 		
-						<p class="c-header__logo" class="h1" itemscope itemtype="http://schema.org/Organization">
+						<p class="c-header__logo" itemscope itemtype="http://schema.org/Organization">
 							<a href="<?php echo home_url(); ?>" rel="nofollow">
-								<svg width="184" height="63">
+								<svg width="148" height="74">
 									<title><?php bloginfo( 'name' ); ?></title>
 									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logotipo" />
 								</svg>
@@ -91,31 +91,23 @@
 								<ul class="c-menu__main">
 									<?php echo get_template_part('partials/main-itens-menu'); ?>
 								</ul>
-								<ul class="c-menu__redes">
-									<?php echo get_template_part('partials/main-redes-menu'); ?>
-								</ul>
 							</div>
 
 							<div class="c-menu__hamburguer js-active-menu">
 								<span></span>
 							</div>
-
-							<div class="c-menu__lang">
-								<div class="c-menu__lang-btn js-lang">
-									<svg width="30" height="30">
-										<title>Pt-br</title>
-										<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#Pt-br" />
-									</svg> 
-								</div>
-
-								<ul class="c-menu__lang-container">
-									<?php echo get_template_part('partials/main-lang-menu'); ?>
-								</ul>
-							</div>
-							
 						</div>
 		
 					</div>
+				</div>
+
+				<div class="c-header__whats">
+					<?php $bannerWhats = get_field('banner_whats', 178); ?>
+					<a href="<?php echo $bannerWhats['link']; ?>">
+						<p class="o-ttl--13 o-ttl--bold">Ofertas no Whats?</p>
+						
+						<img src="<?php echo get_template_directory_uri(); ?>/library/images/whats.svg">
+					</a>
 				</div>
 
 			</header>

@@ -1,0 +1,130 @@
+.c-informative {
+  &__category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2em;
+
+    @include below($md) {
+      flex-direction: column;   
+    }
+
+    h2 {
+      @include below($sm-max) {
+        order: 2;
+      }
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      flex-wrap: wrap;
+
+      @include below($sm-max) {
+        order: 3;
+      }
+
+      li {
+        margin: 10px 15px;
+      }
+    }
+  }
+
+  &__search {
+    @include below($sm-max) {
+      order: 1;
+    }
+  }
+
+  &__block {
+    display: flex;
+    margin-bottom: 2em;
+    box-shadow: 0 0 10px -2px rgba(0,0,0,.2);
+    border-radius: 10px;
+    overflow: hidden;
+
+    @include below($sm-max) {
+      flex-direction: column;
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @include below($sm) {
+      width: 70%;
+    }
+
+    @include below($xs-max) {
+      width: 100%;
+    }
+
+    &--secondary {
+      margin: 3px;
+    }
+
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+
+      @include below($sm-max) {
+        flex-direction: column; 
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      background-color: #FDFDFD;
+      width: 50%;
+
+      @include below($sm-max) {
+        width: 100%; 
+      }
+
+      &:hover {
+        p {
+          color: $text-color;
+        }
+
+        .c-informative__btn {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__img {
+    width: 50%;
+
+    @include below($sm-max) {
+      width: 100%;   
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__txt {
+    padding: 0 3em;
+
+    @include below($md) {
+      padding: 0 1em;     
+    }
+
+    @include below($sm-max) {
+      padding: 2em;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__current {
+    color: $color-primary;
+  }
+}

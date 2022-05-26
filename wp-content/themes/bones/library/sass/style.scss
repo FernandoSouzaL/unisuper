@@ -3,6 +3,7 @@
 @import '1.config/mixins';
 @import '1.config/variables';
 
+
 // Base
 @import '2.base/default';
 @import '2.base/forms';
@@ -10,20 +11,63 @@
 @import '2.base/links';
 @import '2.base/lists';
 @import '2.base/table';
+@import '2.base/pagination';
+
 
 // Objects
 @import '3.objects/button';
 @import '3.objects/wrapper';
 @import '3.objects/input';
+@import '3.objects/grid';
 @import '3.objects/typo';
+@import '3.objects/animated';
+
 
 // Components
 @import '4.components/header';
 @import '4.components/menu';
+@import '4.components/banner';
+@import '4.components/news';
+@import '4.components/form';
+@import '4.components/background';
 @import '4.components/footer';
+@import '4.components/privacy_alert';
+
+//Home
+@import '4.components/Home/home';
+
+//About
+@import '4.components/About/about';
+
+//Licensed
+@import '4.components/Licensed/licensed';
+
+//Work us
+@import '4.components/Work-us/work-us';
+
+//Sac
+@import '4.components/Sac/sac';
+
+//Shop
+@import '4.components/Shops/shop';
+
+//Informativo
+@import '4.components/Informative/informative';
+@import '4.components/Informative/single';
+
+//Lgpd
+@import '4.components/Lgpd/lgpd';
+
+//App
+@import '4.components/App/app';
+
+//Offers
+@import '4.components/Offers/offers';
+
 
 // Trumps
 @import '5.trumps/print';
+
 
 // Vendor
 @import '6.vendor/swiper';

@@ -1,10 +1,87 @@
 .c-footer {
-  background: $black;
+  background: $white;
   display: inline-block;
   width: 100%;
 
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3em;
+    margin-top: 2em;
+
+    @include below($md) {
+      flex-wrap: wrap;
+
+      & > * {
+        margin-bottom: 1.5em;
+      }
+    }
+
+    @include below($xs-max) {
+      flex-direction: column;
+
+      & > * {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__app {
+    display: flex;
+    align-items: center;
+    
+    @include below($xs-max) {
+      flex-direction: column;  
+    }
+
+    &-icons {
+      display: flex;
+      align-items: center;
+    }
+
+    &-img {
+      margin-right: 25px;
+
+      @include below($xs-max) {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+    
+    &-link {
+      display: block;
+      
+      &:first-child {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__payment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+
+    @include below($xs-max) {
+      flex-wrap: wrap;
+    }
+
+    * {
+      margin-right: 10px;
+    }
+  }
+
+  &__content {
+    padding: .5em 0;
+    border-top: 1px solid $gray;
+  }
+
   &__copyright {
-    margin: 2em 0;
+    margin: 0;
 
     img {
       top: 0;

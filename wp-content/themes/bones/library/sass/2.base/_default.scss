@@ -15,6 +15,12 @@ textarea {
   -webkit-font-smoothing: antialiased;
 }
 
+html {
+  &.is-active-menu {
+    overflow: hidden;
+  }
+}
+
 body {
   word-wrap: normal!important;
   -webkit-hyphens: none!important;
@@ -30,4 +36,9 @@ img,
 svg,
 video {
   vertical-align: middle;
+}
+
+#response {
+  display: none;
+  justify-content: center;
 }
